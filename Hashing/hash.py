@@ -1,3 +1,4 @@
+#Brute force
 def cou():
     count=0
     arr=[1,3,4,1,3,5]
@@ -10,51 +11,105 @@ cou()
 
 
 
-# usimg Hash array
 
-arr = list(map(int, input().split())) #take arr elements in a list
-print(arr)
- 
-# one more process take elemnts throw a loop
-arr=[]
-n=int(input("How many times: " ))
-for i in range(n):
-    j=int(input("Enter elements: "))
-    arr.append(j)
-print(arr) 
 
-hashlist=[0]*13
+# Frequency Counting using Hashing
 
+arr = [2, 4, 5, 2, 5]  # Original array
+
+# Create a hash array of size 8.
+# Every element initially has frequency 0.
+# Valid indexes are 0 to 7.
+hashlist = [0] * 8
+
+# Pre-store the frequency of each number
 for i in arr:
-    hashlist[i]+=1
-print(hashlist)    
+    # The value 'i' is used as the index of hashlist.
+    # Increase the frequency by 1.
+    hashlist[i] += 1
+
+# Print the complete hash array
+print(hashlist)
+# Output: [0, 0, 2, 0, 1, 2, 0, 0]
 
 
-q = int(input("Times: "))
-for i in range(q):
-    number = int(input("enter Numbers: "))
-    print(hashlist[number])
+# Fetch / Query the frequency
 
+t = int(input("Enter time: "))
 
+# Run the query loop 't' times
+for j in range(t):
 
+    # Take the number whose frequency we want to find
+    e = int(input("Enter element: "))
 
-#clear process of hash frequency
-arr=[2,4,5,2,5]  #array
-
-hashlist=[0]*8  #take a 8 index array elemets are zero
-
-for i in arr: #this is a loop for arr
+    # Use 'e' as the index and get its frequency
+    print(hashlist[e])
     
-    hashlist[i]+=1
-    #here is most important my array numbers will be save hashlist index throw count. like my arr index 0 number is 2. Here in Hashlist array 2 index count 0+1=1 
-
-print(hashlist) #here hashlist print [0, 0, 2, 0, 1, 2, 0, 0]
-
-t=int(input("Enter time:  ")) #here take a input number
-
-for j in range(t): #Here loop will be run given input t
     
-    e=int(input("Enter elements: ")) #Here take elements
     
-    print(hashlist[e]) #and last here print given elements how many time here throw hashlist array
-       
+    
+    
+# Character Frequency Counting using Hashing
+
+s = input("Enter a string: ")
+
+# Create a hash table for 26 lowercase English letters
+hash_table = [0] * 26
+
+# Pre-store the frequency of each character
+for ch in s:
+
+    # Convert character into an index
+    # a → 0, b → 1, c → 2, ..., z → 25
+    index = ord(ch) - ord('a')
+
+    # Increase the frequency
+    hash_table[index] += 1
+
+
+# Take the character whose frequency we want to find
+ch = input("Enter character: ")
+
+# Convert the character into its hash index
+index = ord(ch) - ord('a')
+
+# Print its frequency
+print("Frequency:", hash_table[index])
+
+
+
+
+
+
+
+# Frequency Counting using Dictionary (Hashing)
+
+arr = [1, 2, 3, 1, 3, 2]
+
+# Create an empty dictionary.
+# It will store:
+# number → frequency
+freq = {}
+
+# Go through each number in the array
+for num in arr:
+
+    # Check whether the number already exists in the dictionary
+    if num in freq:
+
+        # If it exists, increase its frequency by 1
+        freq[num] += 1
+
+    else:
+
+        # If it does not exist, add it to the dictionary
+        # with an initial frequency of 1
+        freq[num] = 1
+
+
+# Print the final frequency dictionary
+print(freq)
+
+# Output:
+# {1: 2, 2: 2, 3: 2}
